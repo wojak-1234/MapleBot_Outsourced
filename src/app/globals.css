@@ -1,26 +1,80 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@theme {
+  --color-background: #030408;
+  --color-foreground: #f3f4f6;
+  --color-brand-blue: #3b82f6;
+  --color-brand-indigo: #6366f1;
+  --color-brand-purple: #8b5cf6;
+  --color-card-bg: rgba(13, 16, 29, 0.75);
+  --color-card-border: rgba(255, 255, 255, 0.08);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #030408;
+  color: #f3f4f6;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Spatial UI & Glassmorphism effects */
+.spatial-card {
+  background: rgba(13, 16, 29, 0.7);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 
+    inset 0 1px 1px rgba(255, 255, 255, 0.15),
+    0 8px 32px rgba(0, 0, 0, 0.5);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.spatial-card:hover {
+  background: rgba(18, 22, 39, 0.8);
+  border-color: rgba(99, 102, 241, 0.35);
+  box-shadow: 
+    inset 0 1px 2px rgba(255, 255, 255, 0.25),
+    0 24px 60px rgba(99, 102, 241, 0.18);
+  transform: translateY(-4px);
+}
+
+/* Neomorphism Soft Shadow Effects for Dark Mode */
+.neo-convex {
+  background: #090b14;
+  box-shadow: 
+    6px 6px 16px rgba(0, 0, 0, 0.6), 
+    -6px -6px 16px rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.neo-inset {
+  background: #07080f;
+  box-shadow: 
+    inset 4px 4px 10px rgba(0, 0, 0, 0.7), 
+    inset -4px -4px 10px rgba(255, 255, 255, 0.02);
+}
+
+.neo-btn {
+  background: #0c0e1a;
+  box-shadow: 
+    4px 4px 12px rgba(0, 0, 0, 0.5), 
+    -4px -4px 12px rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.neo-btn:hover {
+  background: #111424;
+  box-shadow: 
+    2px 2px 6px rgba(0, 0, 0, 0.5), 
+    -2px -2px 6px rgba(255, 255, 255, 0.02);
+  border-color: rgba(99, 102, 241, 0.4);
+  transform: translateY(-1px);
+}
+
+.neo-btn:active {
+  box-shadow: 
+    inset 3px 3px 6px rgba(0, 0, 0, 0.6), 
+    inset -3px -3px 6px rgba(255, 255, 255, 0.01);
+  transform: translateY(1px);
 }
